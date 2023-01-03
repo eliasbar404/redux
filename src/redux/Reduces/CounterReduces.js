@@ -7,7 +7,7 @@ const CounterReducer = (state=mystate,action)=>{
 
     switch(action.type){
         case 'Increment':
-            return {counter:state.counter+action.payload.value}
+            return {counter:state.counter+1}
         case 'Decrement':
             return {counter:state.counter-1}
         default:
