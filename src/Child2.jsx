@@ -10,9 +10,16 @@ const Child2 = () => {
     const Increment = ()=>{
         const action = {
           type:'Increment',
-          payload:{
-            name:'ldld'
-          },
+          payload:{},
+        }
+        dispatch(action);
+      }
+
+
+      const Decrement = ()=>{
+        const action = {
+          type:'Decrement',
+          payload:{},
         }
         dispatch(action);
       }
@@ -23,7 +30,7 @@ const Child2 = () => {
         <h1>Child2 Stage</h1>
       {/* counter */}
         <div>
-            <button className='button' > - </button>
+            <button className='button' onClick={(e)=>Decrement()}> - </button>
             <span className='span'>{counter}</span>
             <button className='button' onClick={(e)=>Increment()}> + </button>
         </div>
