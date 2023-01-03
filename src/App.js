@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import './style/App.css';
+import Child1 from './Child1';
+import { useSelector ,useDispatch} from 'react-redux';
+
+
 
 function App() {
+
+  const dispatch = useDispatch();
+
+  const counter = useSelector((state)=>state.CounterReducer.counter)
+
+  const Increment = ()=>{
+    const action = {
+      type:'Increment',
+      payload:{value:100},
+    }
+    dispatch(action);
+  }
+
+  // const Decrement = ()=>{
+  //   setCounter(counter-1);
+  // }
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>App stage</h1>
+      {/* counter */}
+      <div>
+          <button className='button' > - </button>
+          <span className='span'>{counter}</span>
+          <button className='button' onClick={(e)=>Increment()}> + </button>
+      </div>
+
+      <Child1 />
+
     </div>
   );
 }
-
+// counter={counter} Increment={Increment} Decrement={Decrement}
 export default App;
